@@ -1,178 +1,63 @@
 {
     "meta": {
-        "count": 6,
+        "count": 2,
         "links": {
-            "self": "https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY&keyword=Paris"
+            "self": "https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY&keyword=Dublin"
         }
     },
     "data": [
         {
             "type": "location",
             "subType": "CITY",
-            "name": "PARIS",
-            "detailedName": "PARIS/FR",
-            "id": "CPAR",
+            "name": "DUBLIN",
+            "detailedName": "DUBLIN/GA/US",
+            "id": "CDBN",
             "self": {
-                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CPAR",
+                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CDBN",
                 "methods": [
                     "GET"
                 ]
             },
-            "timeZoneOffset": "+02:00",
-            "iataCode": "PAR",
+            "timeZoneOffset": "-04:00",
+            "iataCode": "DBN",
             "geoCode": {
-                "latitude": 48.85334,
-                "longitude": 2.34889
+                "latitude": 32.56417,
+                "longitude": -82.98666
             },
             "address": {
-                "cityName": "PARIS",
-                "cityCode": "PAR",
-                "countryName": "FRANCE",
-                "countryCode": "FR",
-                "regionCode": "EUROP"
-            },
-            "analytics": {
-                "travelers": {
-                    "score": 68
-                }
-            }
-        },
-        {
-            "type": "location",
-            "subType": "CITY",
-            "name": "LE TOUQUET PARIS PLAGE",
-            "detailedName": "LE TOUQUET PARIS PLAGE/FR",
-            "id": "CLTQ",
-            "self": {
-                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CLTQ",
-                "methods": [
-                    "GET"
-                ]
-            },
-            "timeZoneOffset": "+02:00",
-            "iataCode": "LTQ",
-            "geoCode": {
-                "latitude": 50.5175,
-                "longitude": 1.62056
-            },
-            "address": {
-                "cityName": "LE TOUQUET PARIS PLAGE",
-                "cityCode": "LTQ",
-                "countryName": "FRANCE",
-                "countryCode": "FR",
-                "regionCode": "EUROP"
-            },
-            "analytics": {
-                "travelers": {
-                    "score": 2
-                }
-            }
-        },
-        {
-            "type": "location",
-            "subType": "CITY",
-            "name": "OPELOUSAS",
-            "detailedName": "OPELOUSAS/LA/US",
-            "id": "COPL",
-            "self": {
-                "href": "https://test.api.amadeus.com/v1/reference-data/locations/COPL",
-                "methods": [
-                    "GET"
-                ]
-            },
-            "timeZoneOffset": "-05:00",
-            "iataCode": "OPL",
-            "geoCode": {
-                "latitude": 30.52695,
-                "longitude": -91.97611
-            },
-            "address": {
-                "cityName": "OPELOUSAS",
-                "cityCode": "OPL",
+                "cityName": "DUBLIN",
+                "cityCode": "DBN",
                 "countryName": "UNITED STATES OF AMERICA",
                 "countryCode": "US",
-                "stateCode": "LA",
+                "stateCode": "GA",
                 "regionCode": "NAMER"
             }
         },
         {
             "type": "location",
             "subType": "CITY",
-            "name": "PARIS",
-            "detailedName": "PARIS/TN/US",
-            "id": "CPHT",
+            "name": "DUBLIN",
+            "detailedName": "DUBLIN/VA/US",
+            "id": "CPSK",
             "self": {
-                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CPHT",
+                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CPSK",
                 "methods": [
                     "GET"
                 ]
             },
-            "timeZoneOffset": "-05:00",
-            "iataCode": "PHT",
+            "timeZoneOffset": "-04:00",
+            "iataCode": "PSK",
             "geoCode": {
-                "latitude": 36.33001,
-                "longitude": -88.38
+                "latitude": 37.12,
+                "longitude": -80.68
             },
             "address": {
-                "cityName": "PARIS",
-                "cityCode": "PHT",
+                "cityName": "DUBLIN",
+                "cityCode": "PSK",
                 "countryName": "UNITED STATES OF AMERICA",
                 "countryCode": "US",
-                "stateCode": "TN",
+                "stateCode": "VA",
                 "regionCode": "NAMER"
-            }
-        },
-        {
-            "type": "location",
-            "subType": "CITY",
-            "name": "PARIS",
-            "detailedName": "PARIS/TX/US",
-            "id": "CPRX",
-            "self": {
-                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CPRX",
-                "methods": [
-                    "GET"
-                ]
-            },
-            "timeZoneOffset": "-05:00",
-            "iataCode": "PRX",
-            "geoCode": {
-                "latitude": 33.63667,
-                "longitude": -95.45083
-            },
-            "address": {
-                "cityName": "PARIS",
-                "cityCode": "PRX",
-                "countryName": "UNITED STATES OF AMERICA",
-                "countryCode": "US",
-                "stateCode": "TX",
-                "regionCode": "NAMER"
-            }
-        },
-        {
-            "type": "location",
-            "subType": "CITY",
-            "name": "DISNEYLAND PARIS",
-            "detailedName": "DISNEYLAND PARIS/FR",
-            "id": "CXED",
-            "self": {
-                "href": "https://test.api.amadeus.com/v1/reference-data/locations/CXED",
-                "methods": [
-                    "GET"
-                ]
-            },
-            "timeZoneOffset": "+02:00",
-            "iataCode": "XED",
-            "geoCode": {
-                "latitude": 48.86778,
-                "longitude": 2.77862
-            },
-            "address": {
-                "cityName": "DISNEYLAND PARIS",
-                "cityCode": "XED",
-                "countryName": "FRANCE",
-                "countryCode": "FR",
-                "regionCode": "EUROP"
             }
         }
     ]
