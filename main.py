@@ -125,8 +125,12 @@ def upload_iata_codes_to_sheet(iata_codes: list, object_id: int) -> None:
         object_id += 1
 
 
-cities = city_names()
-iata_codes = [amadeus_city_code(message=city) for city in cities]
-upload_iata_codes_to_sheet(iata_codes=iata_codes, object_id=object_id)
+def search_flight() -> None:
+    
 
-print("Successfull")
+
+# cities = city_names()
+# iata_codes = [amadeus_city_code(message=city) for city in cities]
+# upload_iata_codes_to_sheet(iata_codes=iata_codes, object_id=object_id)
+
+# print("Successfull")
