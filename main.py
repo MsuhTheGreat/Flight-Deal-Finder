@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import os
 import json
 from time import sleep
+import datetime as dt
 
 load_dotenv("secrets.env")
 
@@ -24,8 +25,8 @@ object_id = 2
 SHEETY_PUT_URL = SHEETY_API + f"/{object_id}"
 
 
-def write_json_data_to_file(file_name, data) -> None:
-    with open(file_name, mode="w") as file:
+def write_json_data_to_file(file_name, data, mode) -> None:
+    with open(file_name, mode=mode) as file:
         json.dump(data, file, indent=4)
 
 
@@ -44,7 +45,7 @@ def amadeus_authorization_token() -> str:
     data = response.json()
     
     file_name = "data.json"
-    write_json_data_to_file(file_name, data)
+    write_json_data_to_file(file_name, data, "w")
 
     # with open(file_name, mode="r") as file:
     #     data = json.load(file)
@@ -71,7 +72,7 @@ def amadeus_city_code(message: str) -> str:
     data = response.json()
 
     file_name = "airport_information.json"
-    write_json_data_to_file(file_name, data)
+    write_json_data_to_file(file_name, data, "w")
 
     # with open(file_name, mode="r") as file:
     #     data = json.load(file)
@@ -93,7 +94,7 @@ def city_names() -> list:
     sheet_data = response.json()["prices"]
     
     file_name = "sheet_data.json"
-    write_json_data_to_file(file_name, sheet_data)
+    write_json_data_to_file(file_name, sheet_data, "w")
 
     city_names = [row["city"] for row in sheet_data]
 
@@ -120,13 +121,60 @@ def upload_iata_codes_to_sheet(iata_codes: list, object_id: int) -> None:
         sheet_data = response.json()["price"]
         
         file_name = "sheet_data.json"
-        write_json_data_to_file(file_name, sheet_data)
+        write_json_data_to_file(file_name, sheet_data, "w")
 
         object_id += 1
 
 
-def search_flight() -> None:
+def iata_codes_from_sheet() -> list:
+    secret_header = {
+        "Authorization": f"Bearer {SHEETY_BEARER_TOKEN}"
+        }
     
+    response = requests.get(url=SHEETY_GET_URL, headers=secret_header)
+    response.raise_for_status()
+    sheet_data = response.json()["prices"]
+    
+    file_name = "sheet_data.json"
+    write_json_data_to_file(file_name, sheet_data, "w")
+
+    iata_codes = [row["iataCode"] for row in sheet_data]
+
+    return iata_codes
+
+
+
+
+
+def search_flight() -> None:
+    today = dt.datetime.now()
+    six_month_later = today + dt.timedelta(days=6*30)
+    tomorrow = today + dt.timedelta(days=1)
+
+    iata_codes = iata_codes_from_sheet()
+
+    for iata_code in iata_codes:
+        while tomorrow < six_month_later:
+            secret_header = {
+                "Authorization": f"Bearer {AMADEUS_ACCESS_TOKEN}"
+            }
+            params = {
+                "originLocationCode": "LON",
+                "destinationLocationCode": iata_code,
+                "departureDate": tomorrow.strftime("%Y-%m-%d"),
+                "adults": 1,
+                "currencyCode": "GBP"
+            }
+
+            response = requests.get(url=AMADEUS_BASE_URL+AMADEUS_AIRPORT_FIND_URL, params=params, headers=secret_header)
+            response.raise_for_status()
+            data = response.json()
+
+            file_name = "flight_offers.json"
+            write_json_data_to_file(file_name, data, "a")
+
+            tomorrow = tomorrow + dt.datetime(days=1)
+            sleep(0.1)
 
 
 # cities = city_names()
@@ -134,3 +182,4 @@ def search_flight() -> None:
 # upload_iata_codes_to_sheet(iata_codes=iata_codes, object_id=object_id)
 
 # print("Successfull")
+search_flight()
