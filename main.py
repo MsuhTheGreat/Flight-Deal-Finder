@@ -15,6 +15,7 @@ ALERTZY_ACCOUNT_KEY = os.getenv("ALERTZY_ACCOUNT_KEY")
 ALERTZY_URL = "https://alertzy.app/send"
 AMADEUS_BASE_URL = "https://test.api.amadeus.com/v1"
 AMADEUS_AIRPORT_FIND_URL = "/reference-data/locations"
+AMADEUS_FLIGHT_OFFERS_URL = "/shopping/flight-offers"
 AMADEUS_ACCESS_TOKEN_URL = "https://test.api.amadeus.com/v1/security/oauth2/token"
 AMADEUS_API_KEY = os.getenv("AMADEUS_API_KEY")
 AMADEUS_API_SECRET = os.getenv("AMADEUS_API_SECRET")
