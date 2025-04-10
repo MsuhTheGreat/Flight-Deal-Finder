@@ -28,8 +28,8 @@ A program written in Python that tracks cheap flight deals from London to variou
 ## 📋 Setup Instructions
 ### 1. Clone the Repository
 ```
-git clone https://github.com/MsuhTheGreat/Flight-Deals-Finder.git
-cd Flight-Deals-Finder
+git clone https://github.com/MsuhTheGreat/Flight-Deal-Finder
+cd Flight-Deal-Finder
 ```
 ### 2. Install Dependencies
 ```
