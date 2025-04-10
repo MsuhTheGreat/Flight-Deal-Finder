@@ -2,4 +2,4 @@
 *.env
 *.json
 *.ndjson
-*.txt
+*sheet_url.txt
